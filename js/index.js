@@ -37,11 +37,11 @@ function gameEngine() {
         let scoreBox = document.getElementById('scoreBox')
         score += 1;
         scoreBox.innerHTML = "Score: " + score
-        if(score>highScoreValue){
+        if (score > highScoreValue) {
             highScoreValue = score
-            localStorage.setItem('highScore',JSON.stringify(highScoreValue))
+            localStorage.setItem('highScore', JSON.stringify(highScoreValue))
             let highScore = localStorage.getItem('highScore');
-            highScoreBox.innerHTML = "High Score : "+highScore
+            highScoreBox.innerHTML = "High Score : " + highScore
         }
         snakeArr.unshift({ x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y })
         let a = 1;
@@ -98,13 +98,13 @@ function gameEngine() {
 
 // Main logic from here
 let highScore = localStorage.getItem('highScore');
-if(highScore === null){
+if (highScore === null) {
     highScoreValue = 0
-    localStorage.setItem('highScore',JSON.stringify(highScoreValue))
-}else{
+    localStorage.setItem('highScore', JSON.stringify(highScoreValue))
+} else {
     let highScoreBox = document.getElementById('highScoreBox')
     highScoreValue = JSON.parse(highScore)
-    highScoreBox.innerHTML = "High Score : "+highScore
+    highScoreBox.innerHTML = "High Score : " + highScore
 }
 window.requestAnimationFrame(main)
 window.addEventListener('keydown', (e) => {
